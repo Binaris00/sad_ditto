@@ -1,0 +1,274 @@
+---- Minecraft Crash Report ----
+// Who set us up the TNT?
+
+Time: 2025-06-13 11:34:55
+Description: Initializing game
+
+java.lang.RuntimeException: Could not execute entrypoint stage 'main' due to errors, provided by 'cobblemon' at 'com.cobblemon.mod.fabric.FabricBootstrap'!
+	at net.fabricmc.loader.impl.FabricLoaderImpl.lambda$invokeEntrypoints$2(FabricLoaderImpl.java:403)
+	at net.fabricmc.loader.impl.util.ExceptionUtil.gatherExceptions(ExceptionUtil.java:33)
+	at net.fabricmc.loader.impl.FabricLoaderImpl.invokeEntrypoints(FabricLoaderImpl.java:401)
+	at net.fabricmc.loader.impl.game.minecraft.Hooks.startClient(Hooks.java:52)
+	at net.minecraft.client.Minecraft.<init>(Minecraft.java:477)
+	at net.minecraft.client.main.Main.main(Main.java:239)
+	at net.fabricmc.loader.impl.game.minecraft.MinecraftGameProvider.launch(MinecraftGameProvider.java:480)
+	at net.fabricmc.loader.impl.launch.knot.Knot.launch(Knot.java:74)
+	at net.fabricmc.loader.impl.launch.knot.KnotClient.main(KnotClient.java:23)
+	at net.fabricmc.devlaunchinjector.Main.main(Main.java:86)
+Caused by: java.lang.NoClassDefFoundError: kotlin/reflect/full/KClasses
+	at com.cobblemon.mod.common.pokemon.SpeciesAdditions$AdditionParameterAdapter.<clinit>(SpeciesAdditions.java:85)
+	at com.cobblemon.mod.common.pokemon.SpeciesAdditions.<clinit>(SpeciesAdditions.java:33)
+	at com.cobblemon.mod.common.api.pokemon.PokemonSpecies.<clinit>(PokemonSpecies.java:120)
+	at com.cobblemon.mod.common.Cobblemon.loadConfig(Cobblemon.java:464)
+	at com.cobblemon.mod.common.Cobblemon.preInitialize(Cobblemon.java:195)
+	at com.cobblemon.mod.fabric.CobblemonFabric.initialize(CobblemonFabric.kt:100)
+	at com.cobblemon.mod.fabric.FabricBootstrap.onInitialize(FabricBootstrap.kt:14)
+	at net.fabricmc.loader.impl.FabricLoaderImpl.invokeEntrypoints(FabricLoaderImpl.java:399)
+	... 7 more
+Caused by: java.lang.ClassNotFoundException: kotlin.reflect.full.KClasses
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526)
+	at net.fabricmc.loader.impl.launch.knot.KnotClassDelegate.loadClass(KnotClassDelegate.java:226)
+	at net.fabricmc.loader.impl.launch.knot.KnotClassLoader.loadClass(KnotClassLoader.java:119)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526)
+	... 15 more
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Render thread
+Stacktrace:
+	at net.fabricmc.loader.impl.FabricLoaderImpl.lambda$invokeEntrypoints$2(FabricLoaderImpl.java:403)
+	at net.fabricmc.loader.impl.util.ExceptionUtil.gatherExceptions(ExceptionUtil.java:33)
+	at net.fabricmc.loader.impl.FabricLoaderImpl.invokeEntrypoints(FabricLoaderImpl.java:401)
+	at net.fabricmc.loader.impl.game.minecraft.Hooks.startClient(Hooks.java:52)
+	at net.minecraft.client.Minecraft.<init>(Minecraft.java:477)
+
+-- Initialization --
+Details:
+	Modules: 
+		ADVAPI32.dll:API base de Windows 32 avanzado:10.0.22621.5413 (WinBuild.160101.0800):Microsoft Corporation
+		COMCTL32.dll:Biblioteca de controles de la experiencia del usuario:6.10 (WinBuild.160101.0800):Microsoft Corporation
+		CRYPT32.dll:Crypto API32:10.0.22621.5413 (WinBuild.160101.0800):Microsoft Corporation
+		CRYPTBASE.dll:Base cryptographic API DLL:10.0.22621.4746 (WinBuild.160101.0800):Microsoft Corporation
+		CRYPTSP.dll:Cryptographic Service Provider API:10.0.22621.5335 (WinBuild.160101.0800):Microsoft Corporation
+		DBGHELP.DLL:Windows Image Helper:10.0.22621.3593 (WinBuild.160101.0800):Microsoft Corporation
+		DNSAPI.dll:DLL de API de cliente DNS:10.0.22621.5413 (WinBuild.160101.0800):Microsoft Corporation
+		GDI32.dll:GDI Client DLL:10.0.22621.5185 (WinBuild.160101.0800):Microsoft Corporation
+		IMM32.DLL:Multi-User Windows IMM32 API Client DLL:10.0.22621.5185 (WinBuild.160101.0800):Microsoft Corporation
+		IPHLPAPI.DLL:API auxiliar para IP:10.0.22621.5413 (WinBuild.160101.0800):Microsoft Corporation
+		KERNEL32.DLL:Archivo DLL de cliente API BASE de Windows NT:10.0.22621.5124 (WinBuild.160101.0800):Microsoft Corporation
+		KERNELBASE.dll:Archivo DLL de cliente API BASE de Windows NT:10.0.22621.5124 (WinBuild.160101.0800):Microsoft Corporation
+		MpOav.dll:IOfficeAntiVirus Module:4.18.25040.2 (82640e7cfde5ee75f6010c8d2c06272146d2bb6b):Microsoft Corporation
+		NSI.dll:NSI User-mode interface DLL:10.0.22621.4746 (WinBuild.160101.0800):Microsoft Corporation
+		NTASN1.dll:Microsoft ASN.1 API:10.0.22621.1 (WinBuild.160101.0800):Microsoft Corporation
+		OLEAUT32.dll:OLEAUT32.DLL:10.0.22621.5262 (WinBuild.160101.0800):Microsoft Corporation
+		Ole32.dll:Microsoft OLE para Windows:10.0.22621.5413 (WinBuild.160101.0800):Microsoft Corporation
+		POWRPROF.dll:Archivo DLL auxiliar del perfil de energía:10.0.22621.5413 (WinBuild.160101.0800):Microsoft Corporation
+		PSAPI.DLL:Process Status Helper:10.0.22621.1 (WinBuild.160101.0800):Microsoft Corporation
+		Pdh.dll:Ayudante de los datos de rendimiento DLL de Windows:10.0.22621.5413 (WinBuild.160101.0800):Microsoft Corporation
+		RPCRT4.dll:Tiempo de ejecución de llamada a procedimiento remoto:10.0.22621.5413 (WinBuild.160101.0800):Microsoft Corporation
+		SHCORE.dll:SHCORE:10.0.22621.5413 (WinBuild.160101.0800):Microsoft Corporation
+		SHELL32.dll:Archivo DLL común del shell de Windows:10.0.22621.4830 (WinBuild.160101.0800):Microsoft Corporation
+		UMPDC.dll:User Mode Power Dependency Coordinator:10.0.22621.5124 (WinBuild.160101.0800):Microsoft Corporation
+		USER32.dll:Archivo DLL de cliente API USER de Windows multiusuario:10.0.22621.5413 (WinBuild.160101.0800):Microsoft Corporation
+		USERENV.dll:Userenv:10.0.22621.5413 (WinBuild.160101.0800):Microsoft Corporation
+		VCRUNTIME140.dll:Microsoft® C Runtime Library:14.29.30153.0 built by: cloudtest:Microsoft Corporation
+		VERSION.dll:Version Checking and File Installation Libraries:10.0.22621.1 (WinBuild.160101.0800):Microsoft Corporation
+		WINHTTP.dll:Servicios HTTP de Windows:10.0.22621.5413 (WinBuild.160101.0800):Microsoft Corporation
+		WINMM.dll:MCI API DLL:10.0.22621.5413 (WinBuild.160101.0800):Microsoft Corporation
+		WS2_32.dll:DLL de 32 bits de Windows Socket 2.0:10.0.22621.5413 (WinBuild.160101.0800):Microsoft Corporation
+		amsi.dll:Anti-Malware Scan Interface:10.0.22621.3527 (WinBuild.160101.0800):Microsoft Corporation
+		bcrypt.dll:Biblioteca de primitivas criptográficas de Windows:10.0.22621.5413 (WinBuild.160101.0800):Microsoft Corporation
+		bcryptPrimitives.dll:Windows Cryptographic Primitives Library:10.0.22621.4317 (WinBuild.160101.0800):Microsoft Corporation
+		clbcatq.dll:COM+ Configuration Catalog:2001.12.10941.16384 (WinBuild.160101.0800):Microsoft Corporation
+		combase.dll:Microsoft COM para Windows:10.0.22621.5413 (WinBuild.160101.0800):Microsoft Corporation
+		dbgcore.DLL:Windows Core Debugging Helpers:10.0.22621.1 (WinBuild.160101.0800):Microsoft Corporation
+		extnet.dll:OpenJDK Platform binary:21.0.3.0:Amazon.com Inc.
+		fwpuclnt.dll:API de modo usuario de FWP/IPsec:10.0.22621.5413 (WinBuild.160101.0800):Microsoft Corporation
+		gdi32full.dll:GDI Client DLL:10.0.22621.5262 (WinBuild.160101.0800):Microsoft Corporation
+		java.dll:OpenJDK Platform binary:21.0.3.0:Amazon.com Inc.
+		java.exe:OpenJDK Platform binary:21.0.3.0:Amazon.com Inc.
+		jemalloc.dll
+		jimage.dll:OpenJDK Platform binary:21.0.3.0:Amazon.com Inc.
+		jli.dll:OpenJDK Platform binary:21.0.3.0:Amazon.com Inc.
+		jna10579985333188959950.dll:JNA native library:7.0.0:Java(TM) Native Access (JNA)
+		jsvml.dll:OpenJDK Platform binary:21.0.3.0:Amazon.com Inc.
+		jvm.dll:OpenJDK 64-Bit server VM:21.0.3.0:Amazon.com Inc.
+		kernel.appcore.dll:AppModel API Host:10.0.22621.3958 (WinBuild.160101.0800):Microsoft Corporation
+		lwjgl.dll
+		management.dll:OpenJDK Platform binary:21.0.3.0:Amazon.com Inc.
+		management_ext.dll:OpenJDK Platform binary:21.0.3.0:Amazon.com Inc.
+		msvcp140.dll:Microsoft® C Runtime Library:14.29.30153.0 built by: cloudtest:Microsoft Corporation
+		msvcp_win.dll:Microsoft® C Runtime Library:10.0.22621.3374 (WinBuild.160101.0800):Microsoft Corporation
+		msvcrt.dll:Windows NT CRT DLL:7.0.22621.2506 (WinBuild.160101.0800):Microsoft Corporation
+		mswsock.dll:Proveedor de servicios de Microsoft Windows Sockets 2.0:10.0.22621.5413 (WinBuild.160101.0800):Microsoft Corporation
+		napinsp.dll:Proveedor de correcciones de compatibilidad (shim) de nomenclaturas de correo electrónico:10.0.22621.5413 (WinBuild.160101.0800):Microsoft Corporation
+		ncrypt.dll:Enrutador de Windows NCrypt:10.0.22621.5413 (WinBuild.160101.0800):Microsoft Corporation
+		net.dll:OpenJDK Platform binary:21.0.3.0:Amazon.com Inc.
+		nio.dll:OpenJDK Platform binary:21.0.3.0:Amazon.com Inc.
+		nlansp_c.dll:NLA Namespace Service Provider DLL:10.0.22621.5331 (WinBuild.160101.0800):Microsoft Corporation
+		ntdll.dll:DLL del nivel de Windows NT:10.0.22621.5413 (WinBuild.160101.0800):Microsoft Corporation
+		perfos.dll:DLL de objetos de rendimiento del sistema Windows:10.0.22621.5413 (WinBuild.160101.0800):Microsoft Corporation
+		pfclient.dll:SysMain Client:10.0.22621.1 (WinBuild.160101.0800):Microsoft Corporation
+		pnrpnsp.dll:Proveedor de espacio de nombres PNRP:10.0.22621.5413 (WinBuild.160101.0800):Microsoft Corporation
+		profapi.dll:User Profile Basic API:10.0.22621.5262 (WinBuild.160101.0800):Microsoft Corporation
+		rasadhlp.dll:Remote Access AutoDial Helper:10.0.22621.1 (WinBuild.160101.0800):Microsoft Corporation
+		rsaenh.dll:Microsoft Enhanced Cryptographic Provider:10.0.22621.1 (WinBuild.160101.0800):Microsoft Corporation
+		sechost.dll:Host for SCM/SDDL/LSA Lookup APIs:10.0.22621.1 (WinBuild.160101.0800):Microsoft Corporation
+		shlwapi.dll:Biblioteca de utilidades de Shell:10.0.22621.5413 (WinBuild.160101.0800):Microsoft Corporation
+		sunmscapi.dll:OpenJDK Platform binary:21.0.3.0:Amazon.com Inc.
+		ucrtbase.dll:Microsoft® C Runtime Library:10.0.22621.3593 (WinBuild.160101.0800):Microsoft Corporation
+		vcruntime140_1.dll:Microsoft® C Runtime Library:14.29.30153.0 built by: cloudtest:Microsoft Corporation
+		verify.dll:OpenJDK Platform binary:21.0.3.0:Amazon.com Inc.
+		win32u.dll:Win32u:10.0.22621.5262 (WinBuild.160101.0800):Microsoft Corporation
+		windows.storage.dll:API de almacenamiento de Microsoft WinRT:10.0.22621.5413 (WinBuild.160101.0800):Microsoft Corporation
+		winrnr.dll:LDAP RnR Provider DLL:10.0.22621.1 (WinBuild.160101.0800):Microsoft Corporation
+		wintypes.dll:DLL de tipos basados en Windows:10.0.22621.5413 (WinBuild.160101.0800):Microsoft Corporation
+		wshbth.dll:Windows Sockets Helper DLL:10.0.22621.5331 (WinBuild.160101.0800):Microsoft Corporation
+		zip.dll:OpenJDK Platform binary:21.0.3.0:Amazon.com Inc.
+Stacktrace:
+	at net.minecraft.client.main.Main.main(Main.java:239)
+	at net.fabricmc.loader.impl.game.minecraft.MinecraftGameProvider.launch(MinecraftGameProvider.java:480)
+	at net.fabricmc.loader.impl.launch.knot.Knot.launch(Knot.java:74)
+	at net.fabricmc.loader.impl.launch.knot.KnotClient.main(KnotClient.java:23)
+	at net.fabricmc.devlaunchinjector.Main.main(Main.java:86)
+
+-- Cobblemon --
+Details:
+	Version: 1.6.0
+	Is Snapshot: false
+	Git Commit: 2e3302b (https://gitlab.com/cable-mc/cobblemon/-/commit/2e3302bdec487bf11cace370cffd38f1837ae96b)
+	Branch: HEAD
+
+-- System Details --
+Details:
+	Minecraft Version: 1.21.1
+	Minecraft Version ID: 1.21.1
+	Operating System: Windows 11 (amd64) version 10.0
+	Java Version: 21.0.3, Amazon.com Inc.
+	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode, sharing), Amazon.com Inc.
+	Memory: 236182320 bytes (225 MiB) / 580911104 bytes (554 MiB) up to 4215275520 bytes (4020 MiB)
+	CPUs: 16
+	Processor Vendor: GenuineIntel
+	Processor Name: 12th Gen Intel(R) Core(TM) i5-12500H
+	Identifier: Intel64 Family 6 Model 154 Stepping 3
+	Microarchitecture: Alder Lake
+	Frequency (GHz): 3.11
+	Number of physical packages: 1
+	Number of physical CPUs: 12
+	Number of logical CPUs: 16
+	Graphics card #0 name: Intel(R) Iris(R) Xe Graphics
+	Graphics card #0 vendor: Intel Corporation
+	Graphics card #0 VRAM (MiB): 1024.00
+	Graphics card #0 deviceId: VideoController1
+	Graphics card #0 versionInfo: 31.0.101.3962
+	Memory slot #0 capacity (MiB): 2048.00
+	Memory slot #0 clockSpeed (GHz): 6.40
+	Memory slot #0 type: Unknown
+	Memory slot #1 capacity (MiB): 2048.00
+	Memory slot #1 clockSpeed (GHz): 6.40
+	Memory slot #1 type: Unknown
+	Memory slot #2 capacity (MiB): 2048.00
+	Memory slot #2 clockSpeed (GHz): 6.40
+	Memory slot #2 type: Unknown
+	Memory slot #3 capacity (MiB): 2048.00
+	Memory slot #3 clockSpeed (GHz): 6.40
+	Memory slot #3 type: Unknown
+	Memory slot #4 capacity (MiB): 2048.00
+	Memory slot #4 clockSpeed (GHz): 6.40
+	Memory slot #4 type: Unknown
+	Memory slot #5 capacity (MiB): 2048.00
+	Memory slot #5 clockSpeed (GHz): 6.40
+	Memory slot #5 type: Unknown
+	Memory slot #6 capacity (MiB): 2048.00
+	Memory slot #6 clockSpeed (GHz): 6.40
+	Memory slot #6 type: Unknown
+	Memory slot #7 capacity (MiB): 2048.00
+	Memory slot #7 clockSpeed (GHz): 6.40
+	Memory slot #7 type: Unknown
+	Virtual memory max (MiB): 46660.00
+	Virtual memory used (MiB): 28210.43
+	Swap memory total (MiB): 30583.51
+	Swap memory used (MiB): 1572.03
+	Space in storage for jna.tmpdir (MiB): <path not set>
+	Space in storage for org.lwjgl.system.SharedLibraryExtractPath (MiB): <path not set>
+	Space in storage for io.netty.native.workdir (MiB): <path not set>
+	Space in storage for java.io.tmpdir (MiB): available: 82583.27, total: 464499.31
+	Space in storage for workdir (MiB): available: 82583.27, total: 464499.31
+	JVM Flags: 0 total; 
+	Fabric Mods: 
+		cobblemon: Cobblemon 1.6.0+1.21.1
+		cobblemon_raids: Cobblemon Raids ${version}
+		fabric-api: Fabric API 0.104.0+1.21.1
+		fabric-api-base: Fabric API Base 0.4.42+6573ed8c19
+		fabric-api-lookup-api-v1: Fabric API Lookup API (v1) 1.6.68+b559734419
+		fabric-biome-api-v1: Fabric Biome API (v1) 13.0.29+5bd9f1bc19
+		fabric-block-api-v1: Fabric Block API (v1) 1.0.22+0af3f5a719
+		fabric-block-view-api-v2: Fabric BlockView API (v2) 1.0.10+6573ed8c19
+		fabric-blockrenderlayer-v1: Fabric BlockRenderLayer Registration (v1) 1.1.52+0af3f5a719
+		fabric-client-tags-api-v1: Fabric Client Tags 1.1.15+6573ed8c19
+		fabric-command-api-v1: Fabric Command API (v1) 1.2.49+f71b366f19
+		fabric-command-api-v2: Fabric Command API (v2) 2.2.28+6ced4dd919
+		fabric-commands-v0: Fabric Commands (v0) 0.2.66+df3654b319
+		fabric-content-registries-v0: Fabric Content Registries (v0) 8.0.16+b559734419
+		fabric-convention-tags-v1: Fabric Convention Tags 2.0.22+7f945d5b19
+		fabric-convention-tags-v2: Fabric Convention Tags (v2) 2.7.0+4053855719
+		fabric-crash-report-info-v1: Fabric Crash Report Info (v1) 0.2.29+0af3f5a719
+		fabric-data-attachment-api-v1: Fabric Data Attachment API (v1) 1.1.28+1daea21519
+		fabric-data-generation-api-v1: Fabric Data Generation API (v1) 20.2.19+16c4ae2519
+		fabric-dimensions-v1: Fabric Dimensions API (v1) 4.0.0+6fc22b9919
+		fabric-entity-events-v1: Fabric Entity Events (v1) 1.7.0+2122d82819
+		fabric-events-interaction-v0: Fabric Events Interaction (v0) 0.7.12+ba9dae0619
+		fabric-game-rule-api-v1: Fabric Game Rule API (v1) 1.0.53+6ced4dd919
+		fabric-gametest-api-v1: Fabric Game Test API (v1) 2.0.4+6fc22b9919
+		fabric-item-api-v1: Fabric Item API (v1) 11.0.0+afdfc92119
+		fabric-item-group-api-v1: Fabric Item Group API (v1) 4.1.5+3fc0e55219
+		fabric-key-binding-api-v1: Fabric Key Binding API (v1) 1.0.47+0af3f5a719
+		fabric-keybindings-v0: Fabric Key Bindings (v0) 0.2.45+df3654b319
+		fabric-lifecycle-events-v1: Fabric Lifecycle Events (v1) 2.3.12+6c1df36019
+		fabric-loot-api-v2: Fabric Loot API (v2) 3.0.14+3f89f5a519
+		fabric-loot-api-v3: Fabric Loot API (v3) 1.0.2+3f89f5a519
+		fabric-message-api-v1: Fabric Message API (v1) 6.0.13+6573ed8c19
+		fabric-model-loading-api-v1: Fabric Model Loading API (v1) 2.0.0+fe474d6b19
+		fabric-networking-api-v1: Fabric Networking API (v1) 4.2.2+60c3209b19
+		fabric-object-builder-api-v1: Fabric Object Builder API (v1) 15.2.0+40875a9319
+		fabric-particles-v1: Fabric Particles (v1) 4.0.2+6573ed8c19
+		fabric-recipe-api-v1: Fabric Recipe API (v1) 5.0.12+6508971219
+		fabric-registry-sync-v0: Fabric Registry Sync (v0) 5.1.2+60c3209b19
+		fabric-renderer-api-v1: Fabric Renderer API (v1) 3.4.0+c705a49c19
+		fabric-renderer-indigo: Fabric Renderer - Indigo 1.7.0+c705a49c19
+		fabric-renderer-registries-v1: Fabric Renderer Registries (v1) 3.2.68+df3654b319
+		fabric-rendering-data-attachment-v1: Fabric Rendering Data Attachment (v1) 0.3.48+73761d2e19
+		fabric-rendering-fluids-v1: Fabric Rendering Fluids (v1) 3.1.6+1daea21519
+		fabric-rendering-v0: Fabric Rendering (v0) 1.1.71+df3654b319
+		fabric-rendering-v1: Fabric Rendering (v1) 5.0.5+df16efd019
+		fabric-resource-conditions-api-v1: Fabric Resource Conditions API (v1) 4.3.0+8dc279b119
+		fabric-resource-loader-v0: Fabric Resource Loader (v0) 1.3.0+5659912919
+		fabric-screen-api-v1: Fabric Screen API (v1) 2.0.25+8b68f1c719
+		fabric-screen-handler-api-v1: Fabric Screen Handler API (v1) 1.3.86+b559734419
+		fabric-sound-api-v1: Fabric Sound API (v1) 1.0.23+6573ed8c19
+		fabric-transfer-api-v1: Fabric Transfer API (v1) 5.2.0+d38f898f19
+		fabric-transitive-access-wideners-v1: Fabric Transitive Access Wideners (v1) 6.1.0+1daea21519
+		fabricloader: Fabric Loader 0.16.5
+		gooeylibs: GooeyLibs 3.1.0
+		gooeylibs-api: GooeyLibs API 3.1.0
+		java: OpenJDK 64-Bit Server VM 21
+		minecraft: Minecraft 1.21.1
+		mixinextras: MixinExtras 0.4.1
+	Launched Version: Fabric
+	Backend library: LWJGL version 3.3.3-snapshot
+	Backend API: Unknown
+	Window size: <not initialized>
+	GFLW Platform: <error>
+	GL Caps: Using framebuffer using OpenGL 3.2
+	GL debug messages: <disabled>
+	Is Modded: Definitely; Client brand changed to 'fabric'
+	Universe: 404
+	Type: Client (map_client.txt)
+	Locale: es_DO
+	System encoding: Cp1252
+	File encoding: windows-1252
+	CPU: <unknown>

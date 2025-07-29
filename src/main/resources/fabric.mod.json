@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "cobblemon_fabric_template",
+  "version": "1.0.0",
+  "name": "Cobblemon Fabric Template",
+  "description": "Fabric Template Fabric Template Fabric Template Fabric Template",
+  "authors": [
+    "Binaris"
+  ],
+  "mixins": [
+    "cobblemon_fabric_template.mixins.json"
+  ],
+  "license": "MPL-2.0",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.cobblemon.mdks.cobblemon_raids.CobblemonFabricTemplate"
+    ]
+  },
+  "depends": {
+    "java": ">=17",
+    "minecraft": "1.21.1",
+    "fabricloader": ">=0.14.21",
+    "fabric-api": "*",
+    "cobblemon": ">=1.6.0"
+  }
+}

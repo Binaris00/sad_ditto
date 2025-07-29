@@ -1,0 +1,7 @@
+/cob
+/raid
+/give Player461 minecraft:player_head
+/give Player461 minecraft:barrier
+/raid config raid_area get
+/raid config raid_area set -35 -59 -45
+/raid config raid_area get
