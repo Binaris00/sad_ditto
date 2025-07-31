@@ -1,4 +1,4 @@
-rootProject.name = "Cobblemon Fabric Template"
+rootProject.name = "sad_ditto"
 
 pluginManagement {
     repositories {

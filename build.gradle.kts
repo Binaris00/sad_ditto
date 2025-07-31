@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "org.example"
-version = "1.0.0"
+version = "1.0.1"
 
 java {
     toolchain {
@@ -24,6 +24,7 @@ repositories {
     maven(url = "https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/")
     maven("https://maven.impactdev.net/repository/development/")
     maven("https://oss.sonatype.org/content/repositories/snapshots")
+    maven ("https://cursemaven.com" )
 }
 
 dependencies {
@@ -31,6 +32,7 @@ dependencies {
     minecraft("net.minecraft:minecraft:1.21.1")
     mappings(loom.officialMojangMappings())
     modImplementation("net.fabricmc:fabric-loader:0.16.5")
+    modImplementation("curse.maven:utilitiesplus-1205589:6530123")
 
     // Fabric API
     modRuntimeOnly("net.fabricmc.fabric-api:fabric-api:0.104.0+1.21.1")
